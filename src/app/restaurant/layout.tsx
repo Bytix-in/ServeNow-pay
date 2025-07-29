@@ -162,7 +162,10 @@ export default function RestaurantLayout({
           <div className={`mt-6 px-4 ${collapsed ? 'hidden' : ''}`}>
             <p className="text-xs font-medium text-gray-500 mb-2">Others</p>
             <div className="space-y-1">
-              <Link href="#" className="flex items-center gap-3 px-2 py-2 rounded-xl text-gray-600 hover:bg-gray-100 transition cursor-pointer">
+              <Link 
+                href="/restaurant/support" 
+                className={`flex items-center gap-3 px-2 py-2 rounded-xl transition cursor-pointer ${pathname === '/restaurant/support' ? 'bg-gray-200 text-gray-900 shadow-sm' : 'text-gray-600 hover:bg-gray-100'}`}
+              >
                 <HelpCircle className="w-5 h-5" />
                 <span className="text-sm font-medium">Support</span>
               </Link>
