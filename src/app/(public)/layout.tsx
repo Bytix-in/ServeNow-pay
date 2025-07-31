@@ -1,11 +1,15 @@
+'use client'
+
 import { ReactNode } from 'react'
 import Link from 'next/link'
-import { ThemeProvider } from '@/contexts/ThemeContext'
-import Footer from '@/components/layout/Footer'
+
+import { usePathname } from 'next/navigation'
+
 
 export default function PublicLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
+
   return (
-    <ThemeProvider>
       <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
         <header className="fixed top-0 left-0 right-0 z-50 glass-effect grid-pattern-subtle border-b border-gray-200 dark:border-gray-700 shadow-sm bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-8 py-4">
@@ -19,23 +23,49 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
                 </div>
                 <span className="text-xl font-black text-black dark:text-white tracking-tight">ServeNow</span>
               </div>
-
-              {/* Navigation Links - Centered */}
-              <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
-                <div className="flex space-x-12">
-                  <Link href="/" className="text-black dark:text-white font-black hover:text-gray-600 dark:hover:text-gray-300 transition-colors tracking-tight">
-                    Home
-                  </Link>
-                  <Link href="/features" className="text-gray-600 dark:text-gray-300 font-bold hover:text-black dark:hover:text-white transition-colors">
-                    Features
-                  </Link>
-                  <Link href="/pricing" className="text-gray-600 dark:text-gray-300 font-bold hover:text-black dark:hover:text-white transition-colors">
-                    Pricing
-                  </Link>
-                  <Link href="/contact" className="text-gray-600 dark:text-gray-300 font-bold hover:text-black dark:hover:text-white transition-colors">
-                    Contact
-                  </Link>
-                </div>
+            {/* Navigation Links - Centered */}
+            <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
+              <div className="flex space-x-12">
+                <Link 
+                  href="/" 
+                  className={`font-semibold transition-colors tracking-tight ${
+                    pathname === '/' 
+                      ? 'text-black font-bold border-b-2 border-black pb-1' 
+                      : 'text-gray-600 hover:text-black'
+                  }`}
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/features" 
+                  className={`font-semibold transition-colors ${
+                    pathname === '/features' 
+                      ? 'text-black font-bold border-b-2 border-black pb-1' 
+                      : 'text-gray-600 hover:text-black'
+                  }`}
+                >
+                  Features
+                </Link>
+                <Link 
+                  href="/pricing" 
+                  className={`font-semibold transition-colors ${
+                    pathname === '/pricing' 
+                      ? 'text-black font-bold border-b-2 border-black pb-1' 
+                      : 'text-gray-600 hover:text-black'
+                  }`}
+                >
+                  Pricing
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className={`font-semibold transition-colors ${
+                    pathname === '/contact' 
+                      ? 'text-black font-bold border-b-2 border-black pb-1' 
+                      : 'text-gray-600 hover:text-black'
+                  }`}
+                >
+                  Contact
+                </Link>
               </div>
 
               {/* Access Portal Button */}
@@ -55,6 +85,5 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
         
         <Footer />
       </div>
-    </ThemeProvider>
   )
 }

@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { ReactQueryProvider } from '@/lib/react-query'
-import ThemeScript from '@/components/ThemeScript'
+
+import { Providers } from '@/components/providers/Providers'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,9 +29,11 @@ export default function RootLayout({
         <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
       </head>
       <body className={inter.className}>
-        <ReactQueryProvider>
-          {children}
-        </ReactQueryProvider>
+        <Providers>
+          <ReactQueryProvider>
+            {children}
+          </ReactQueryProvider>
+        </Providers>
       </body>
     </html>
   )

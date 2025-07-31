@@ -84,46 +84,10 @@ export default function HomePage() {
           transition={{ duration: 1, delay: 0.3 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <motion.h1 
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-8 leading-tight"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 1, 
-              delay: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94]
-            }}
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="inline-block"
-            >
-              The type of{' '}
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ 
-                duration: 0.8, 
-                delay: 1.2,
-                type: "spring",
-                stiffness: 100
-              }}
-              className="inline-block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient"
-            >
-              Serve
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="inline-block"
-            >
-              {' '}You deserve
-            </motion.span>
-          </motion.h1>
+
+          <h1 className="text-6xl font-bold text-gray-900 mb-8 leading-tight" style={{ fontSize: '3.75rem' }}>
+            The type of Serve You deserve
+          </h1>
 
           <motion.p 
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto"
@@ -738,8 +702,10 @@ export default function HomePage() {
               <h3 className="text-2xl font-bold text-black dark:text-white mb-4">
                 Easy Management
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Intuitive interface designed specifically for restaurant owners and staff. No technical expertise required.
+
+              <p className="text-gray-600 leading-relaxed">
+                Intuitive interface designed specifically for restaurant owners. No technical expertise required.
+
               </p>
             </div>
 
